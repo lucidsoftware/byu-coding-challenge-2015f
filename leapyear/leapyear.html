@@ -1,0 +1,140 @@
+<style>
+	.center {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.center-text {
+		text-align: center ! important;
+	}
+
+	.example-table {
+		margin-top: 10px;
+		text-align: left;
+		width: 100%;
+	}
+
+	.example-table td {
+		max-width: 0;
+		word-wrap: break-word;
+		vertical-align: top; 
+	}
+
+	.example-table .vertical-spacer {
+		height: 5px;
+	}
+
+	.inline {
+		display: inline;
+	}
+
+	.section {
+		margin-top: 19px;
+		margin-bottom:19px;
+	}
+
+	.section:first-child, .section:first-child > h3:first-child {
+		margin-top: 0;
+	}
+
+	.paragraph {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+
+	.paragraph ul, .paragraph pre {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	ul.padded > li, ol.padded > li {
+		margin-bottom: 13px;
+	}
+	ul.padded > li:last-child, ol.padded > li:last-child {
+		margin-bottom: 0;
+	}
+
+	pre {
+		tab-size:  4;
+		display: inline;
+	}
+
+	.billboard {
+		line-height: 1em;
+		outline: solid 1px black;
+	}
+
+	.xkcd {
+		float: right;
+		margin: 30px;
+	}
+</style>
+
+<div>
+	<div class="section">
+		<h3>Description</h3>
+		<img class='xkcd' src="http://imgs.xkcd.com/comics/30_days_hath_september.png" title="There's a cool mental calculation hack I recently learned for this: If you open the calendar app on your phone or computer, the highest-numbered box along the bottom is equal to the number of days in the month!" alt="Leap Year">
+		<div class="paragraph">
+			You want to know how many days there have been so far this year, but in order to find out you need to know if it's a leap year.
+		</div>
+		<div class="paragraph">
+		 The year is a leap year if:
+		</div>
+		<div class="paragraph">
+
+<pre>
+The year is divisible by 4
+	UNLESS the year is divisible by 100
+		UNLESS the year is divisible by 400.</pre>
+		</div>
+
+	</div>
+
+	<div class="section">
+		<h3>Input</h3>
+		<div class="paragraph">
+		A date in format <pre>MM/DD/YYYY</pre>.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Output</h3>
+		<div class="paragraph">
+			The day of the year (where <pre>01/01/YYYY</pre> is day <pre>1</pre>).
+		</div>
+	</div>
+	<div class="section">
+		<h3 style="display:table; width:100%;">Examples</h3>
+	</div>
+	<table class="section example-table">
+		<tr>
+			<th>Input</th>
+			<th>Input</th>
+			<th>Input</th>
+			<th>Input</th>
+			<th>Input</th>
+		</tr>
+		<tr>
+			<td><pre>11/07/2015</pre></td>
+			<td><pre>04/20/2000</pre></td>
+			<td><pre>08/16/1900</pre></td>
+			<td><pre>03/22/1624</pre></td>
+			<td><pre>06/04/1381</pre></td>
+		</tr>
+		<tr>
+			<th>Output</th>
+			<th>Output</th>
+			<th>Output</th>
+			<th>Output</th>
+			<th>Output</th>
+		</tr>
+		<tr>
+			<td><pre>311</pre></td>
+			<td><pre>111</pre></td>
+			<td><pre>228</pre></td>
+			<td><pre>82</pre></td>
+			<td><pre>155</pre></td>
+		</tr>
+	</table>
+</div>
