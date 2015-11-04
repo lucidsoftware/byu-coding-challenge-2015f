@@ -1,0 +1,141 @@
+<style>
+	.center {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.center-text {
+		text-align: center ! important;
+	}
+
+	.example-table {
+		margin-top: 10px;
+		text-align: left;
+		width: 100%;
+	}
+
+	.example-table td {
+		max-width: 0;
+		word-wrap: break-word;
+		vertical-align: top; 
+	}
+
+	.example-table .vertical-spacer {
+		height: 5px;
+	}
+
+	.inline {
+		display: inline;
+	}
+
+	.section {
+		margin-top: 19px;
+		margin-bottom:19px;
+	}
+
+	.section:first-child, .section:first-child > h3:first-child {
+		margin-top: 0;
+	}
+
+	.paragraph {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+
+	.paragraph ul, .paragraph pre {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	ul.padded > li, ol.padded > li {
+		margin-bottom: 13px;
+	}
+	ul.padded > li:last-child, ol.padded > li:last-child {
+		margin-bottom: 0;
+	}
+
+	pre {
+		tab-size: 4;
+		display: inline;
+	}
+
+	.billboard {
+		line-height: 1em;
+		outline: solid 1px black;
+	}
+</style>
+
+<div>
+	<img src="http://imgs.xkcd.com/comics/premiere.png" title="'But what's the buzz about the film?' 'We're hoping it's distracting.'" alt="Folding">
+	<div class="section">
+		<h3>Description</h3>
+		<div class="paragraph">
+			You're hoping to be a news reporter and are looking for a movie star to interview. Your friend has given you a method for determining if there is a celebrity in the room, and who it is.
+		</div>
+		<div class="paragraph">
+			A person is a celebrity if everyone else in the room knows them, and they don't know anybody in the room. Find whether or not there is a celebrity in the room, and if there is who it is.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Input</h3>
+		<div class="paragraph">
+			The first line will contain two numbers <pre>n (2 &lt;= n &lt;= 1,000)</pre>, the number of people in the room, and <pre>e</pre> the number of relationships. We will reference people by numbers between <pre>0</pre> and <pre>n-1</pre>.
+		</div>
+		<div class="paragraph">
+			The next <pre>e<pre> lines will each contain two numbers <pre>a</pre>, and <pre>b</pre>, which means that person <pre>a</pre> knows person <pre>b</pre>.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Output</h3>
+		<div class="paragraph">
+			If there is no celebrity, print <pre>-1</pre>, otherwise print the celebrity's number.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Examples</h3>
+	</div>
+
+	<table class="section example-table">
+		<tr>
+			<th>Input</th>
+			<th>Input</th>
+		</tr>
+		<tr>
+			<td>
+<pre>4 6
+1 2
+0 2
+0 3
+2 3
+2 0
+1 3
+</pre>
+			</td>
+			<td>
+<pre>4 6
+1 2
+0 2
+0 3
+2 3
+1 3
+3 1</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Output</th>
+			<th>Output</th>
+		</tr>
+		<tr>
+			<td>
+				<pre>3</pre>
+			</td>
+			<td>
+				<pre>-1</pre>
+			</td>
+		</tr>
+	</table>
+</div>
