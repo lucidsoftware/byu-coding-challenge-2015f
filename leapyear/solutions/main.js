@@ -36,8 +36,34 @@ function getDayNumber(date) {
   var days = day + getDaysToMonth(month);
   if(month > 2 && isLeapYear(year)) days++;
   console.log(days);
+  return days
 };
 
 readStdin(function(lines){
   getDayNumber(lines[0]);
 });
+
+// var dates = ['01/30/2004',
+// '12/31/2008',
+// '02/28/2000',
+// '06/04/1200',
+// '01/04/2100',
+// '04/30/1900',
+// '02/26/2017',
+// '11/07/2015',
+// '03/12/1316',
+// '05/12/1311',
+// '07/12/1316',
+// '08/12/1311',
+// '09/12/1316',
+// '10/12/1311',
+// '02/29/3200'];
+
+// var days = dates.map(getDayNumber);
+
+// var fs = require('fs');
+
+// for(var i=0; i<dates.length; i++){
+//   fs.writeFileSync('../tests/'+i+'.in',dates[i]);
+//   fs.writeFileSync('../tests/'+i+'.out',days[i]);
+// }
