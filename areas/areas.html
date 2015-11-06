@@ -1,0 +1,343 @@
+<style>
+	.center {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.center-text {
+		text-align: center ! important;
+	}
+
+	.example-table {
+		margin-top: 10px;
+		text-align: left;
+		width: 100%;
+	}
+
+	.example-table td {
+		max-width: 0;
+		word-wrap: break-word;
+		vertical-align: top; 
+	}
+
+	.example-table .vertical-spacer {
+		height: 5px;
+	}
+
+	.inline {
+		display: inline;
+	}
+
+	.section {
+		margin-top: 19px;
+		margin-bottom:19px;
+	}
+
+	.section:first-child, .section:first-child > h3:first-child {
+		margin-top: 0;
+	}
+
+	.paragraph {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+
+	.paragraph ul, .paragraph pre {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	ul.padded > li, ol.padded > li {
+		margin-bottom: 13px;
+	}
+	ul.padded > li:last-child, ol.padded > li:last-child {
+		margin-bottom: 0;
+	}
+
+	pre {
+		tab-size: 4;
+		display: inline;
+	}
+
+	.example-table pre {
+		display: block;
+	}
+</style>
+
+<script async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=MML_HTMLorMML-full"></script>
+
+<div>
+	<img class="center" src="//imgs.xkcd.com/comics/compass_and_straightedge.png" title="The Greeks long suspected this, but it wasn't until April 12th of 1882 that Ferdinand von Lindemann conclusively proved it when he constructed himself the most awesome birthday party possible and nobody showed up." alt="Compass and Straightedge">
+	<div class="section">
+		<h3>Description</h3>
+		<div class="paragraph">
+			Since you don't have any friends, you get to spend Saturday morning solving a geometry problem.
+		</div>
+		<div class="paragraph">
+			A non-intersecting quadrilateral can be divided into four non-overlapping triangles by connecting opposite vertices, like so:
+		</div>
+		<svg class="center" style="height: 200px;width: 400px;" viewBox="0 0 2 1">
+			<path d="M .4 .3 L 1.8 .1 L 1.6 .9 L .6 .7 Z" fill="none" stroke="black" vector-effect="non-scaling-stroke"/>
+			<line stroke="black" stroke-dasharray="5,5" vector-effect="non-scaling-stroke" x1=".4" x2="1.6" y1=".3" y2=".9"/>
+			<line stroke="black" stroke-dasharray="5,5" vector-effect="non-scaling-stroke" x1="1.8" x2=".6" y1=".1" y2=".7"/>
+		</svg>
+		<div class="paragraph">
+			Given the four vertices of the quadrilateral, you are to find the area of the largest of the four triangles created in this way.
+		</div>
+		<div class="paragraph">
+			You may find the "shoelace formula" helpful. It describes the area of a degree-<math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi></math> polygon with vertices
+			<math xmlns="http://www.w3.org/1998/Math/MathML">
+				<mfenced close="" open="">
+					<mfenced>
+						<msub>
+							<mi>x</mi>
+							<mn>1</mn>
+						</msub>
+						<msub>
+							<mi>y</mi>
+							<mn>1</mn>
+						</msub>
+					</mfenced>
+					<mfenced>
+						<msub>
+							<mi>x</mi>
+							<mn>2</mn>
+						</msub>
+						<msub>
+							<mi>y</mi>
+							<mn>2</mn>
+						</msub>
+					</mfenced>
+					<mrow>
+						<mo>...</mo>
+						<mfenced>
+							<msub>
+								<mi>x</mi>
+								<mi>n</mi>
+							</msub>
+							<msub>
+								<mi>y</mi>
+								<mi>n</mi>
+							</msub>
+						</mfenced>
+					</mrow>
+				</mfenced>
+			</math>:
+			<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+				<mi>A</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mn>1</mn>
+					<mn>2</mn>
+				</mfrac>
+				<mo>|</mo>
+				<mo>(</mo>
+				<munderover>
+					<mo>&sum;</mo>
+					<mrow>
+						<mi>i</mi>
+						<mo>=</mo>
+						<mn>1</mn>
+					</mrow>
+					<mrow>
+						<mi>n</mi>
+						<mo>-</mo>
+						<mn>1</mn>
+					</mrow>
+				</munderover>
+				<msub>
+					<mi>x</mi>
+					<mi>i</mi>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mrow>
+						<mi>i</mi>
+						<mo>+</mo>
+						<mn>1</mn>
+					</mrow>
+				</msub>
+				<mo>)</mo>
+				<mo>+</mo>
+				<msub>
+					<mi>x</mi>
+					<mi>n</mi>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mn>1</mn>
+				</msub>
+				<mo>-</mo>
+				<mo>(</mo>
+				<munderover>
+					<mo>&sum;</mo>
+					<mrow>
+						<mi>i</mi>
+						<mo>=</mo>
+						<mn>1</mn>
+					</mrow>
+					<mrow>
+						<mi>n</mi>
+						<mo>-</mo>
+						<mn>1</mn>
+					</mrow>
+				</munderover>
+				<msub>
+					<mi>x</mi>
+					<mrow>
+						<mi>i</mi>
+						<mo>+</mo>
+						<mn>1</mn>
+					</mrow>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mi>i</mi>
+				</msub>
+				<mo>)</mo>
+				</mrow>
+				<mo>-</mo>
+				<msub>
+					<mi>x</mi>
+					<mn>1</mn>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mi>n</mi>
+				</msub>
+				<mo>|</mo>
+			</math>
+			which, when <math xmlns="http://www.w3.org/1998/Math/MathML"><mi>n</mi><mo>=</mo><mn>3</mn></math>, is
+			<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+				<mi>A</mi>
+				<mo>=</mo>
+				<mfrac>
+					<mn>1</mn>
+					<mn>2</mn>
+				</mfrac>
+				<mo>|</mo>
+				<msub>
+					<mi>x</mi>
+					<mn>1</mn>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mn>2</mn>
+				</msub>
+				<mo>+</mo>
+				<msub>
+					<mi>x</mi>
+					<mn>2</mn>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mn>3</mn>
+				</msub>
+				<mo>+</mo>
+				<msub>
+					<mi>x</mi>
+					<mn>3</mn>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mn>1</mn>
+				</msub>
+				<mo>-</mo>
+				<msub>
+					<mi>x</mi>
+					<mn>2</mn>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mn>1</mn>
+				</msub>
+				<mo>-</mo>
+				<msub>
+					<mi>x</mi>
+					<mn>3</mn>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mn>2</mn>
+				</msub>
+				<mo>-</mo>
+				<msub>
+					<mi>x</mi>
+					<mn>1</mn>
+				</msub>
+				<msub>
+					<mi>y</mi>
+					<mn>3</mn>
+				</msub>
+				<mo>|</mo>
+			</math>
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Input</h3>
+		<div class="paragraph">
+			The input is the four vertices, in order. Each vertex is on a line, and each line has the x- and y-coordinates separated by a space. All coordinates are integers from -500 to 500 inclusive.
+		</div>
+		<div class="paragraph">
+			The quadrilateral is simple; i.e. the edges intersect each other only at the four vertices.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Output</h3>
+		<div class="paragraph">
+			Output a single number: the area of the largest triangle. This answer must be accurate to within 0.001.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Examples</h3>
+	</div>
+
+	<table class="section example-table">
+		<tr>
+			<th>Input</th>
+			<th>Input</th>
+			<th>Input</th>
+		</tr>
+		<tr>
+			<td>
+<pre>0 0
+0 1
+1 1
+1 0</pre>
+			</td>
+			<td>
+<pre>0 5
+10 400
+100 500
+50 -5</pre>
+			</td>
+			<td>
+<pre>-2 0
+0 1
+2 0
+0 -1</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Output</th>
+			<th>Output</th>
+			<th>Output</th>
+		</tr>
+		<tr>
+			<td>
+<pre>0.25</pre>
+			</td>
+			<td>
+<pre>11588.288</pre>
+			</td>
+			<td>
+<pre>1</pre>
+			</td>
+		</tr>
+	</table>
+</div>
