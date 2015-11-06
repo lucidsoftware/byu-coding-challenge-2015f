@@ -1,0 +1,153 @@
+<style>
+	.center {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.center-text {
+		text-align: center ! important;
+	}
+
+	.example-table {
+		margin-top: 10px;
+		text-align: left;
+		width: 100%;
+	}
+
+	.example-table td {
+		max-width: 0;
+		word-wrap: break-word;
+		vertical-align: top; 
+	}
+
+	.example-table .vertical-spacer {
+		height: 5px;
+	}
+
+	.inline {
+		display: inline;
+	}
+
+	.section {
+		margin-top: 19px;
+		margin-bottom:19px;
+	}
+
+	.section:first-child, .section:first-child > h3:first-child {
+		margin-top: 0;
+	}
+
+	.paragraph {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+
+	.paragraph ul, .paragraph pre {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	ul.padded > li, ol.padded > li {
+		margin-bottom: 13px;
+	}
+	ul.padded > li:last-child, ol.padded > li:last-child {
+		margin-bottom: 0;
+	}
+
+	pre {
+		tab-size: 4;
+		display: inline;
+	}
+
+	.example-table pre {
+		display: block;
+	}
+</style>
+
+<div>
+	<img class="center" style="height:400px" src="//imgs.xkcd.com/comics/learning_to_cook.png" title="And yet I never stop thinking, 'sure, these ingredients cost more than a restaurant meal, but think how many meals I'll get out of them! Especially since each one will have leftovers!'" alt="Learning to Cook">
+	<div class="section">
+		<h3>Description</h3>
+		<div class="paragraph">
+			Pizza is awesome.
+		</div>
+		<div class="paragraph">
+			After a programming competition, you and your fellow competitors have pizza for lunch. It's much better than the leftovers in your fridge. You are in charge of slicing and distributing the pizzas, which are of various initial sizes. You may cut each pizza however you like, and as many times as you would like; you could even not cut a pizza at all, and make the whole thing one big "slice". (Yummy.) The only portioning requirement is that each person receive <b>exactly one</b> slice of pizza, and they can't share it.
+		</div>
+		<div class="paragraph">
+			You consider how large of a slice you can guarentee, such that each person gets at least that much. For example, if there are three people, and three pizzas of sizes 1, 2, and 3, you can cut the largest pizza in half, yielding slices of size 1, 2, 1.5, and 1.5. That guarantees each person a slice of size 1.5 or more.
+		</div>
+		<div class="paragraph">
+			Given that you can cut pizzas however you like, what is largest size slice you can guarantee to everyone?
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Input</h3>
+		<div class="paragraph">
+			The first line is two numbers separated by a space, M and N. M is the number of people (0 &lt; M &lt; 1000). N is the number of whole pizzas (0 &lt; N &lt; 1000).
+			<br>
+			The next N lines are the initial sizes of the pizzas, which are positive numbers less than 1000.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Output</h3>
+		<div class="paragraph">
+			Output the maximum size of pizza slice you can guarantee to each person. Your answer must be accurate to within 0.001.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Examples</h3>
+	</div>
+
+	<table class="section example-table">
+		<tr>
+			<th>Input</th>
+			<th>Input</th>
+			<th>Input</th>
+		</tr>
+		<tr>
+			<td>
+<pre>3 3
+1
+2
+3</pre>
+			</td>
+			<td>
+<pre>3 4
+1
+2
+3
+4</pre>
+			</td>
+			<td>
+<pre>5 5
+6
+2
+3
+7
+11</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Output</th>
+			<th>Output</th>
+			<th>Output</th>
+		</tr>
+		<tr>
+			<td>
+<pre>1.5</pre>
+			</td>
+			<td>
+<pre>2</pre>
+			</td>
+			<td>
+<pre>3.667</pre>
+			</td>
+		</tr>
+	</table>
+</div>
