@@ -1,0 +1,159 @@
+<style>
+	.center {
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.center-text {
+		text-align: center ! important;
+	}
+
+	.example-table {
+		margin-top: 10px;
+		text-align: left;
+		width: 100%;
+	}
+
+	.example-table td {
+		max-width: 0;
+		word-wrap: break-word;
+		vertical-align: top; 
+	}
+
+	.example-table .vertical-spacer {
+		height: 5px;
+	}
+
+	.inline {
+		display: inline;
+	}
+
+	.section {
+		margin-top: 19px;
+		margin-bottom:19px;
+	}
+
+	.section:first-child, .section:first-child > h3:first-child {
+		margin-top: 0;
+	}
+
+	.paragraph {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+
+	.paragraph ul, .paragraph pre {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	ul.padded > li, ol.padded > li {
+		margin-bottom: 13px;
+	}
+	ul.padded > li:last-child, ol.padded > li:last-child {
+		margin-bottom: 0;
+	}
+
+	pre {
+		tab-size: 4;
+		display: inline;
+	}
+
+	.billboard {
+		line-height: 1em;
+		outline: solid 1px black;
+	}
+</style>
+
+<div>
+	<!-- <img src="http://imgs.xkcd.com/comics/premiere.png" title="" alt="Checkers"> -->
+	<div class="section">
+		<h3>Description</h3>
+		<img src="board.png" style="float:right;width:250px;">
+		<div class="paragraph">
+			Chinese checkers is a board game where the goal is to race all your pieces across the board into the star corner on the opposite side of the board before your opponent does the same. The destination corner is called home. 
+		</div>
+		<div class="paragraph">
+			The rules to move the marbles through the board are:
+			<ul>
+				<li>
+					You can move to any adjacent and unoccupied cell
+				</li>
+				<li>
+					If there's an unoccupied cell after an adjacent occupied cell (through a straight line), you can jump it and repeat as many times as you need.
+				</li>
+			</ul>
+		</div>
+		<div class="paragraph">
+		We will represent the board using only two corners where the goal is to get from cell 1 to cell 81:
+		</div>
+		<img src="numbered.png" style="width:600px">
+		<div class="paragraph">
+			A common way to move the pieces on the board is selecting a marble and looking for the sequence of moves that reach as close to the destination corner as possible. Your job will be to find this route.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Input</h3>
+		<div class="paragraph">
+			There will be two lines of input. The first line will be a space separated list of occupied cells.
+		</div>
+		<div class="paragraph">
+			The second line will be a space separated list of origin cells.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Output</h3>
+		<div class="paragraph">
+			For each origin cell, print the closest cell to the goal that you can reach in one turn. Print each answer on a new line. We will define distance from the goal as number of moves to the goal ignoring occupied cells. Thus, cells 54, 62, 70, and 78 are all 3 away from the goal. If there is a tie in distance, prefer larger numbers.
+		</div>
+		<div class="paragraph">
+			Example 1 is representative of the illustration above. Starting from 1, you can navigate to 81 by way of 3, 21, 39, 41, 43, 45, 63, 81. Starting with 7, the furthest you can get is 25, by jumping over 16.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Examples</h3>
+	</div>
+
+	<table class="section example-table">
+		<tr>
+			<th>Input</th>
+			<th>Input</th>
+		</tr>
+		<tr>
+			<td>
+<pre>2 12 16 24 30 40 42 44 54 72
+1 7 17 53 11 41
+</pre>
+			</td>
+			<td>
+<pre>2 12 22 32 42 52 60 70 81
+1 11 25 72</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Output</th>
+			<th>Output</th>
+		</tr>
+		<tr>
+			<td>
+				<pre>81
+25
+51
+62
+13
+81</pre>
+			</td>
+			<td>
+				<pre>79
+71
+34
+80
+				</pre>
+			</td>
+		</tr>
+	</table>
+</div>
