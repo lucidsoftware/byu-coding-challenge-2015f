@@ -5,8 +5,9 @@
 		background: #f4f4f4;
 	}
 
-	.maintable {
-		width: 860px;
+	/* Ads */
+	iframe, ins, .aProblemTop {
+		display: none;
 	}
 
 	form[name="fch"] {
@@ -115,8 +116,22 @@
 	/* Printing */
 
 	@media print {
-		.menu, .problems, .maintable > tbody > tr:first-child, .probleminfo, .prob > hr, #ccontent, .prob > table:last-child, .maintable > tbody > tr:nth-child(3), body > div, td > h2:first-child, td > h2  + div {
-			display: none;
+		body > *, .menu,
+			.problems,
+			#header,
+			#footer,
+			tr:first-child td:first-child div[align="center"]:first-child,
+			td > h2,
+			#ccontent,
+			#ccontent + table,
+			.probleminfo,
+			.prob > hr { 
+		display: none;
+	}
+	@media print {
+		body .container {
+			display: block;
+			border: none ! important;
 		}
 	}
 

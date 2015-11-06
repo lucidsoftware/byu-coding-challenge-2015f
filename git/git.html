@@ -14,9 +14,21 @@
 		padding-right: 10px;
 	}
 
+	.description-table td {
+		padding: 0 ! important;
+	}
+
 	.description-table pre {
 		display: block;
 		margin: 5px 0 ! important;
+	}
+
+	.description-container-table {
+		width: 100%;
+	}
+
+	.description-container-table > tbody > tr > td {
+		vertical-align: top;
 	}
 
 	.example-table {
@@ -27,6 +39,7 @@
 
 	.example-table td {
 		max-width: 0;
+		padding: 0 ! important;
 		word-wrap: break-word;
 		vertical-align: top; 
 	}
@@ -77,40 +90,48 @@
 </style>
 
 <div>
-	<img class="center"src="//imgs.xkcd.com/comics/git.png" title="If that doesn't fix it, git.txt contains the phone number of a friend of mine who understands git. Just wait through a few minutes of 'It's really pretty simple, just think of branches as...' and eventually you'll learn the commands that will fix everything." alt="Git" style="height:400px">
 	<div class="section">
-		<h3>Description</h3>
-		<div class="paragraph">
-			Given an action, choose the correct Git commands to accomplish it, as follows:
-			<div class="center-text">
-				<table class="description-table" style="margin:0 auto;text-align:left">
-					<tr>
-						<th>send</th>
-						<td>
+		<table class="description-container-table">
+			<tr>
+				<td>
+					<img class="center"src="//imgs.xkcd.com/comics/git.png" title="If that doesn't fix it, git.txt contains the phone number of a friend of mine who understands git. Just wait through a few minutes of 'It's really pretty simple, just think of branches as...' and eventually you'll learn the commands that will fix everything." alt="Git" style="max-height:350px;padding-top:5px">
+				</td>
+				<td>
+					<h3 style="text-align:center;margin-top:5px">Description</h3>
+					<div class="paragraph">
+						Given an action, choose the correct Git commands to accomplish it, as follows:
+						<div class="center-text">
+							<table class="description-table" style="margin:0 auto;text-align:left">
+								<tr>
+									<th>send</th>
+									<td>
 <pre>git add -A
 git commit -m "Some changes"
 git pull
 git push</pre>
-						</td>
-					</tr>
-					<tr>
-						<th>receive</th>
-						<td>
+									</td>
+								</tr>
+								<tr>
+									<th>receive</th>
+									<td>
 <pre>git add -A
 git stash
 git pull
 git stash pop</pre>
-						</td>
-					</tr>
-					<tr>
-						<th>info</th>
-						<td>
+									</td>
+								</tr>
+								<tr>
+									<th>info</th>
+									<td>
 <pre>git status -s</pre>
-						</td>
-					</tr>
-				</table>
-			</div>
-		</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
 	</div>
 
 	<div class="section">
