@@ -5,44 +5,52 @@ import mechanize
 import requests
 import sys
 
-spoj_base_url = 'http://www.spoj.com'
+class AuthenticationError(Exception):
+    def __init__(self):
+        Exception.__init__(self)
 
-def navigate(browser, url):
-    print 'Navigating to {}'.format(url)
-    browser.open(url)
+class SPOJ:
+    def __init__(self):
+        self.base_url = 'http://www.spoj.com'
+        self.browser = mechanize.Browser()
 
-def authenticate(browser, username, password):
-    navigate(browser, spoj_base_url)
-    login_form = browser.select_form(predicate=lambda form: form.attrs.get('id') == 'login-form')
-    browser['login_user'] = username
-    browser['password'] = password
+    def navigate(self, url):
+        print 'Navigating to {}'.format(url)
+        self.browser.open(url)
 
-    print 'Authenticating'
-    browser.submit()
-    cookies = browser._ua_handlers['_cookies'].cookiejar
-    if any(c.name == 'SPOJ' for c in cookies):
+    def authenticate(self, username, password):
+        self.navigate(self.base_url)
+        login_form = self.browser.select_form(predicate=lambda form: form.attrs.get('id') == 'login-form')
+        self.browser['login_user'] = username
+        self.browser['password'] = password
+
+        print 'Authenticating'
+        self.browser.submit()
+        cookies = self.browser._ua_handlers['_cookies'].cookiejar
+        if not any(c.name == 'SPOJ' for c in cookies):
+            print 'Authentication failed'
+            raise AuthenticationError()
         print 'Authenticated'
-    else:
-        print 'Authentication failed'
-        sys.exit(1)
 
-def edit_problem(browser, problem_code, body_path=None):
-    navigate(browser, '{}/problems/{}/edit'.format(spoj_base_url, problem_code))
-    browser.select_form('editform')
-    if body_path is not None:
-        print 'Changing problem description to {}'.format(body_path)
-        with open(body_path, 'r') as body_file:
-            browser['body'] = body_file.read()
+    def edit_problem(self, problem_code, body_path=None):
+        self.navigate('{}/problems/{}/edit'.format(self.base_url, problem_code))
+        self.browser.select_form('editform')
+        if body_path is not None:
+            print 'Changing problem description to {}'.format(body_path)
+            with open(body_path, 'r') as body_file:
+                self.browser['body'] = body_file.read()
 
-    print 'Editing {}'.format(problem_code)
-    browser.submit()
-    print 'Edited {}'.format(problem_code)
+        print 'Editing {}'.format(problem_code)
+        self.browser.submit()
+        print 'Edited {}'.format(problem_code)
 
 def problem_main(args):
-    browser = mechanize.Browser()
-    authenticate(browser, args.user, args.password)
-
-    edit_problem(browser, args.problem_code, body_path=args.body_file)
+    spoj = SPOJ()
+    try:
+        spoj.authenticate(args.user, args.password)
+    except AuthenticationError:
+        sys.exit(1)
+    spoj.edit_problem(args.problem_code, body_path=args.body_file)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
