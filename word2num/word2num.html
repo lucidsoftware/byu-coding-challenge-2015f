@@ -1,0 +1,170 @@
+<style>
+	.center {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.center-text {
+		text-align: center ! important;
+	}
+
+	.example-table {
+		margin-top: 10px;
+		text-align: left;
+		width: 100%;
+	}
+
+	.example-table td {
+		max-width: 0;
+		word-wrap: break-word;
+		vertical-align: top; 
+	}
+
+	.example-table .vertical-spacer {
+		height: 5px;
+	}
+
+	.inline {
+		display: inline;
+	}
+
+	.section {
+		margin-top: 19px;
+		margin-bottom:19px;
+	}
+
+	.section:first-child, .section:first-child > h3:first-child {
+		margin-top: 0;
+	}
+
+	.paragraph {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+
+	.paragraph ul, .paragraph pre {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	ul.padded > li, ol.padded > li {
+		margin-bottom: 13px;
+	}
+	ul.padded > li:last-child, ol.padded > li:last-child {
+		margin-bottom: 0;
+	}
+
+	pre {
+		tab-size: 4;
+		display: inline;
+	}
+
+	.example-table pre {
+		display: block;
+	}
+</style>
+
+<div>
+	<img class="center" alt="Code Talkers" src="//imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn't have a common word for 'zero'.  do-neh-lini means 'neutral'.">
+	<div class="section">
+		<h3>Description</h3>
+		<div class="paragraph">
+			You will convert numbers from words to numerals. Unlike the code talker above, however, you will do so in English.
+		</div>
+		<div class="paragraph">
+			The numbers will be nonnegative integers less than one billion. Their word representation will be a &lt;number&gt; according to the following BNF grammar:
+		</div>
+
+		<xmp>
+<ones> ::= "one" | "two" | "three" | "four" | "five" | "size" | "seven" | "eight" | "nine"
+<tens-place> ::= "twenty" | "thirty" | "forty" | "fifty" | "sixty" | "seventy" | "eighty"
+	| "ninety"
+<tens> ::= <ones> | <tens-place> | <tens-place> "-" <ones> | "ten" | "eleven" | "twelve"
+	| "thirteen" | "fourteen" | "fifteen" | "sixteen" | "seventeen" | "eighteen" | "nineteen"
+<hundreds> ::= <tens> | <ones> hundred | <ones> hundred <tens>
+<thousands> ::= <hundreds> | <hundreds> thousand | <hundreds> thousand <hundreds>
+<millions> ::= <hundreds> | <hundreds> million | <hundreds> million <hundreds>
+<number> ::= <millions> | "zero"
+		</xmp>
+	</div>
+
+	<div class="section">
+		<h3>Input</h3>
+		<div class="paragraph">
+			The input is the word representation of the number.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Output</h3>
+		<div class="paragraph">
+			Output the decimal representation of the number.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Examples</h3>
+	</div>
+
+	<table class="section example-table">
+		<tr>
+			<th>Input</th>
+			<th>Input</th>
+			<th>Input</th>
+		</tr>
+		<tr>
+			<td>
+<pre>zero</pre>
+			</td>
+			<td>
+<pre>seventeen</pre>
+			</td>
+			<td>
+<pre>fifty-two</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Output</th>
+			<th>Output</th>
+			<th>Output</th>
+		</tr>
+		<tr>
+			<td>
+<pre>0</pre>
+			</td>
+			<td>
+<pre>17</pre>
+			</td>
+			<td>
+<pre>52</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Input</th>
+			<th>Input</th>
+		</tr>
+		<tr>
+			<td>
+<pre>one thousand one</pre>
+			</td>
+			<td>
+<pre>nine hundred ninety-nine million nine hundred ninty-nine thousand nine hundred ninty-nine
+</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Output</th>
+			<th>Output</th>
+		</tr>
+		<tr>
+			<td>
+<pre>1001</pre>
+			</td>
+			<td>
+<pre>999999999</pre>
+			</td>
+		</tr>
+	</table>
+</div>
