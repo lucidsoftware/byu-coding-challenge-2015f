@@ -1,0 +1,163 @@
+<style>
+	.center {
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.center-text {
+		text-align: center ! important;
+	}
+
+	.description-table th {
+		font-weight: bold;
+		padding-right: 10px;
+	}
+
+	.description-table pre {
+		display: block;
+		margin: 5px 0 ! important;
+	}
+
+	.example-table {
+		margin-top: 10px;
+		text-align: left;
+		width: 100%;
+	}
+
+	.example-table td {
+		max-width: 0;
+		word-wrap: break-word;
+		vertical-align: top; 
+	}
+
+	.example-table .vertical-spacer {
+		height: 5px;
+	}
+
+	.inline {
+		display: inline;
+	}
+
+	.section {
+		margin-top: 19px;
+		margin-bottom:19px;
+	}
+
+	.section:first-child, .section:first-child > h3:first-child {
+		margin-top: 0;
+	}
+
+	.paragraph {
+		margin-top: 10px;
+		margin-bottom: 10px;
+		text-align: left;
+	}
+
+	.paragraph ul, .paragraph pre {
+		margin-top: 3px;
+		margin-bottom: 3px;
+	}
+
+	ul.padded > li, ol.padded > li {
+		margin-bottom: 13px;
+	}
+	ul.padded > li:last-child, ol.padded > li:last-child {
+		margin-bottom: 0;
+	}
+
+	pre {
+		tab-size: 4;
+		display: inline;
+	}
+
+	.example-table pre {
+		display: block;
+	}
+</style>
+
+<div>
+	<img class="center"src="//imgs.xkcd.com/comics/git.png" title="If that doesn't fix it, git.txt contains the phone number of a friend of mine who understands git. Just wait through a few minutes of 'It's really pretty simple, just think of branches as...' and eventually you'll learn the commands that will fix everything." alt="Git" style="height:400px">
+	<div class="section">
+		<h3>Description</h3>
+		<div class="paragraph">
+			Given an action, choose the correct Git commands to accomplish it, as follows:
+			<div class="center-text">
+				<table class="description-table" style="margin:0 auto;text-align:left">
+					<tr>
+						<th>send</th>
+						<td>
+<pre>git add -A
+git commit -m "Some changes"
+git pull
+git push</pre>
+						</td>
+					</tr>
+					<tr>
+						<th>receive</th>
+						<td>
+<pre>git add -A
+git stash
+git pull
+git stash pop</pre>
+						</td>
+					</tr>
+					<tr>
+						<th>info</th>
+						<td>
+<pre>git status -s</pre>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Input</h3>
+		<div class="paragraph">
+			The input is the desired action: send, receive, or info.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Output</h3>
+		<div class="paragraph">
+			Ouput the corresponding Git commands. Don't improvise; give the commands exactly as shown.
+		</div>
+	</div>
+
+	<div class="section">
+		<h3>Examples</h3>
+	</div>
+
+	<table class="section example-table">
+		<tr>
+			<th>Input</th>
+			<th>Input</th>
+		</tr>
+		<tr>
+			<td>
+<pre>receive</pre>
+			</td>
+			<td>
+<pre>info</pre>
+			</td>
+		</tr>
+		<tr>
+			<th>Output</th>
+			<th>Output</th>
+		</tr>
+		<tr>
+			<td>
+<pre>git add -A
+git stash
+git pull
+git stash pop</pre>
+			</td>
+			<td>
+<pre>git status -s</pre>
+			</td>
+		</tr>
+	</table>
+</div>
