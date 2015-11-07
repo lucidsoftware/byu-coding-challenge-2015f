@@ -12,10 +12,10 @@ public class Main {
 
 	public static void main(String[] args){
 		Scanner scan = new Scanner(System.in);
-		Point p1 = new Point(scan.nextFloat(), scan.nextFloat());
-		Point p2 = new Point(scan.nextFloat(), scan.nextFloat());
-		Point p3 = new Point(scan.nextFloat(), scan.nextFloat());
-		Point p4 = new Point(scan.nextFloat(), scan.nextFloat());
+		Point p1 = new Point(scan.nextInt(), scan.nextInt());
+		Point p2 = new Point(scan.nextInt(), scan.nextInt());
+		Point p3 = new Point(scan.nextInt(), scan.nextInt());
+		Point p4 = new Point(scan.nextInt(), scan.nextInt());
 		Point center = intersection(p1,p3,p2,p4);
 
 		float maxArea = 0;
