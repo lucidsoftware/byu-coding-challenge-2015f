@@ -87,16 +87,16 @@
 	| "ninety"
 <tens> ::= <ones> | <tens-place> | <tens-place> "-" <ones> | "ten" | "eleven" | "twelve"
 	| "thirteen" | "fourteen" | "fifteen" | "sixteen" | "seventeen" | "eighteen" | "nineteen"
-<hundreds> ::= <tens> | <ones> hundred | <ones> hundred <tens>
-<thousands> ::= <hundreds> | <hundreds> thousand | <hundreds> thousand <hundreds>
-<millions> ::= <thousands> | <hundreds> million | <hundreds> million <thousands>
+<hundreds> ::= <tens> | <ones> " " "hundred" | <ones> " " "hundred" " " <tens>
+<thousands> ::= <hundreds> | <hundreds> " " "thousand" | <hundreds> " " "thousand" " " <hundreds>
+<millions> ::= <thousands> | <hundreds> " " "million" | <hundreds> " " "million" " " <thousands>
 <number> ::= <millions> | "zero"</xmp>
 	</div>
 
 	<div class="section">
 		<h3>Input</h3>
 		<div class="paragraph">
-			The input is the word representation of the number.
+			The input is the word representation of the number on a single line.
 		</div>
 	</div>
 
@@ -117,6 +117,7 @@
 			<th>Input</th>
 			<th>Input</th>
 			<th>Input</th>
+			<th style="width:33%">Input</th>
 		</tr>
 		<tr>
 			<td>
@@ -128,8 +129,12 @@
 			<td>
 <pre>fifty-two</pre>
 			</td>
+			<td>
+<pre>one thousand one</pre>
+			</td>
 		</tr>
 		<tr>
+			<th>Output</th>
 			<th>Output</th>
 			<th>Output</th>
 			<th>Output</th>
@@ -144,17 +149,16 @@
 			<td>
 <pre>52</pre>
 			</td>
+			<td>
+<pre>1001</pre>
+			</td>
 		</tr>
 	</table>
 	<table class="example-table" style="margin-top:0">
 		<tr>
-			<th>Input</th>
-			<th>Input</th>
+			<th>Input (one line)</th>
 		</tr>
 		<tr>
-			<td>
-<pre>one thousand one</pre>
-			</td>
 			<td>
 <pre>nine hundred ninety-nine million nine hundred ninety-nine thousand nine hundred ninety-nine
 </pre>
@@ -162,12 +166,8 @@
 		</tr>
 		<tr>
 			<th>Output</th>
-			<th>Output</th>
 		</tr>
 		<tr>
-			<td>
-<pre>1001</pre>
-			</td>
 			<td>
 <pre>999999999</pre>
 			</td>
