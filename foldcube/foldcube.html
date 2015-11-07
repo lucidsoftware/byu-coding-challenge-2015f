@@ -8,6 +8,16 @@
 		text-align: center ! important;
 	}
 
+	.description-container-table {
+		width: 100%;
+	}
+
+	.description-container-table td {
+		text-align: center;
+		padding: 0 ! important;
+		vertical-align: top;
+	}
+
 	.example-table {
 		margin-top: 10px;
 		text-align: left;
@@ -57,7 +67,6 @@
 
 	pre {
 		tab-size: 4;
-		display: inline;
 	}
 
 	.billboard {
@@ -67,41 +76,38 @@
 </style>
 
 <div>
-	<img src="http://imgs.xkcd.com/comics/flatland.png" title="Also, I apologize for the time I climbed down into your world and everyone freaked out about the lesbian orgy overseen by a priest." alt="Folding">
+	<img src="http://imgs.xkcd.com/comics/flatland.png" alt="Folding" style="height:175px">
 	<div class="section">
 		<h3>Description</h3>
 		<div class="paragraph">
-			In order to represent a 3 dimensional cube in 2 dimensions it needs to be unfolded. There are many ways to unfold a cube, to make this easier we always unfold the cube in the same way
+			In order to represent a 3 dimensional cube in 2 dimensions it needs to be unfolded. There are many ways to unfold a cube, to make this easier, we will always unfold cubes to look like this
 		</div>
-		<div class="center-text">
-			<pre>
-
-       --------       
-       |      |       
-       |  1   |       
-       |      |       
-----------------------
-|      |      |      |
-|  2   |  3   |  4   |
-|      |      |      |
-----------------------
-       |      |       
-       |  5   |       
-       |      |       
-       --------       
-       |      |       
-       |  6   |       
-       |      |       
-       --------       </pre>
+		<table class="description-container-table">
+			<tr>
+				<td>
+					<div class="center-text" style="display:inline-block">
+						<pre>
+    -----    
+    | 1 |    
+-------------
+| 2 | 3 | 4 |
+-------------
+    | 5 |    
+    -----    
+    | 6 |    
+    -----</pre>
+					</div>
+				</td>
+				<td>
+					<img src="http://www.spoj.com/content/byuadmin:cube_fold.gif"/>
+				</td>
+			</tr>
+		</table>
+		<div class="paragraph">
+			We don't know what orientation the cube was before it was unfolded. Based on the 2D representations of the cubes, we want to know if the cubes could have been the same in 3D after refolding and rotations.
 		</div>
 		<div class="paragraph">
-			We don't know what orientation the cube was before it was unfolded. All we have is the 2d representation of the cubes and we want to know if 2 cubes are the same in 3d after refolding and rotations.
-		</div>
-		<div class="paragraph">
-			When refolding an unfolded cube we can either fold the edges up or fold the edges down, since we don't know how it was unfolded two cubes are the same if one is refolded up and the other is refolded down. For example, if you fold the edges up, face <pre>3</pre> would be on the bottom, but if you folded the edges down <pre>3</pre> would be on the top.
-		</div>
-		<div class="center-text">
-			<img src="http://www.spoj.com/content/byuadmin:cube_fold.gif"/>
+			Note that when refolding, we can fold the edges up or down. For example, if you fold the edges up, face 3 would be on the bottom, but if you folded the edges down 3 would be on the top.
 		</div>
 
 	</div>
@@ -109,20 +115,17 @@
 	<div class="section">
 		<h3>Input</h3>
 		<div class="paragraph">
-			The first line will be a number <pre>n</pre>. <pre>n</pre> testcases will follow. Each test case consists of two flatten cubes separated by an empty line.
+			The first line is a number N. N testcases follow. Each test case consists of two flatten cubes separated by an empty line.
 		</div>		
 		<div class="paragraph">
-			You will receive two flattened cubes separated by an empty line.
-		</div>
-		<div class="paragraph">
-			Each face of the cube will be represented with a single lowercase letter. A cube can have multiple identical faces. 
+			Each face of a cube is represented with a single lowercase letter. A cube can have multiple identical faces. 
 		</div>
 	</div>
 
 	<div class="section">
 		<h3>Output</h3>
 		<div class="paragraph">
-			Output <pre>same</pre> if they are the same, and <pre>different</pre> if they are different.
+			Output <pre style="display:inline">same</pre> if they are the same, and <pre style="display:inline">different</pre> if they are different.
 		</div>
 	</div>
 
