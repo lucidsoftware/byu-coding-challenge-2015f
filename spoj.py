@@ -51,6 +51,16 @@ class SPOJ:
         self.browser.submit()
         print 'Edited {}'.format(problem_code)
 
+    def set_tests(self, problem_code, zip_path):
+        self.navigate('{}/BYU2015F/problems/{}/edit'.format(self.base_url, problem_code))
+        self.browser.select_form(nr=4)
+        print 'Setting tests to {}'.format(zip_path)
+        with open(zip_path, 'rb') as zip_file:
+            self.browser.form.add_file(zip_file, 'application/zip', zip_file.name, name='inout_file')
+            print 'Uploading tests to {}'.format(problem_code)
+            self.browser.submit()
+            print 'Uploaded tests to {}'.format(problem_code)
+
     def upload(self, contest_code, name, upload_path):
         self.navigate('{}/{}/uploads'.format(self.base_url, contest_code))
         self.browser.select_form(nr=0)
@@ -73,6 +83,11 @@ def problem_main(args):
     spoj.authenticate(args.user, args.password)
     spoj.edit_problem(args.problem_code, body_path=args.body_file)
 
+def tests_main(args):
+    spoj = SPOJ()
+    spoj.authenticate(args.user, args.password)
+    spoj.set_tests(args.problem_code, args.zip_file)
+
 def upload_main(args):
     spoj = SPOJ()
     spoj.authenticate(args.user, args.password)
@@ -93,6 +108,11 @@ if __name__ == '__main__':
     subparser.add_argument('problem_code', help='Alphanumeric problem code')
     subparser.add_argument('--body-file', help='Problem description file')
     subparser.set_defaults(func=problem_main)
+
+    subparser = subparsers.add_parser('tests')
+    subparser.add_argument('problem_code', help='Alphanumeric problem code')
+    subparser.add_argument('--zip-file')
+    subparser.set_defaults(func=tests_main)
 
     subparser = subparsers.add_parser('upload')
     subparser.add_argument('contest_code')

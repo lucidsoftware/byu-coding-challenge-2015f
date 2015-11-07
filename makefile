@@ -12,10 +12,13 @@ HTML_SRC_DIR := $(dir $(HTML_SRC))
 UPLOADS_SRC := $(wildcard uploads/*)
 
 .PHONY: all
-all: contest problems uploads
+all: contest problems solutions uploads
 
 .PHONY: contest
 contest: target/BYU2015F.html
+
+.PHONY: solutions
+solutions: $(HTML_SRC_DIR:%/=target/%.zip.upload)
 
 .PHONY: problems
 problems: $(HTML_SRC_DIR:%/=target/%.html)
@@ -37,9 +40,18 @@ target/uploads/%: uploads/%
 	./spoj.py --user=$(USER) --password=$(PASSWORD) upload --file=$< BYU2015F $(*:%.html=%)
 	@> $@
 
+
+target/%.zip.upload: target/%.zip
+	./spoj.py --user=$(USER) --password=$(PASSWORD) tests --zip-file=$< $(call uppercase,$*)
+	@> $@
+
 .SECONDEXPANSION:
 
-target/%.html: $$*/$**.html
+target/%.zip: $$(wildcard $$*/tests/*)
+	@mkdir -p $(@D)
+	@if [ -z "$^" ]; then > $@; else zip --filesync -j $@ $^; fi
+
+target/%.html: $$*/$$*.html
 	@mkdir -p $(@D)
 	./spoj.py --user=$(USER) --password=$(PASSWORD) problem --body-file=$< $(call uppercase,$*)
 	@> $@
