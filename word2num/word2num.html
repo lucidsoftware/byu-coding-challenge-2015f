@@ -61,33 +61,36 @@
 		display: inline;
 	}
 
+	xmp {
+		font-size: 12px;
+		margin: 0;
+	}
+
 	.example-table pre {
 		display: block;
 	}
 </style>
 
 <div>
-	<img class="center" alt="Code Talkers" src="//imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn't have a common word for 'zero'.  do-neh-lini means 'neutral'.">
+	<img class="center" style="height:250px" alt="Code Talkers" src="//imgs.xkcd.com/comics/code_talkers.png" title="As far as I can tell, Navajo doesn't have a common word for 'zero'.  do-neh-lini means 'neutral'.">
 	<div class="section">
 		<h3>Description</h3>
 		<div class="paragraph">
-			You will convert numbers from words to numerals. Unlike the code talker above, however, you will do so in English.
+			You will convert numbers from words to numerals.
 		</div>
 		<div class="paragraph">
-			The numbers will be nonnegative integers less than one billion. Their word representation will be a &lt;number&gt; according to the following BNF grammar:
+			The numbers will be nonnegative integers less than one billion. Their word representations will be &lt;number&gt;s according to the following BNF grammar:
 		</div>
 
-		<xmp style="text-align:left">
-<ones> ::= "one" | "two" | "three" | "four" | "five" | "six" | "seven" | "eight" | "nine"
+		<xmp style="text-align:left"><ones> ::= "one" | "two" | "three" | "four" | "five" | "six" | "seven" | "eight" | "nine"
 <tens-place> ::= "twenty" | "thirty" | "forty" | "fifty" | "sixty" | "seventy" | "eighty"
 	| "ninety"
 <tens> ::= <ones> | <tens-place> | <tens-place> "-" <ones> | "ten" | "eleven" | "twelve"
 	| "thirteen" | "fourteen" | "fifteen" | "sixteen" | "seventeen" | "eighteen" | "nineteen"
 <hundreds> ::= <tens> | <ones> hundred | <ones> hundred <tens>
 <thousands> ::= <hundreds> | <hundreds> thousand | <hundreds> thousand <hundreds>
-<millions> ::= <hundreds> | <hundreds> million | <hundreds> million <hundreds>
-<number> ::= <millions> | "zero"
-		</xmp>
+<millions> ::= <thousands> | <hundreds> million | <hundreds> million <thousands>
+<number> ::= <millions> | "zero"</xmp>
 	</div>
 
 	<div class="section">
@@ -108,7 +111,8 @@
 		<h3>Examples</h3>
 	</div>
 
-	<table class="section example-table">
+	<div class="section">
+	<table class="example-table">
 		<tr>
 			<th>Input</th>
 			<th>Input</th>
@@ -141,6 +145,8 @@
 <pre>52</pre>
 			</td>
 		</tr>
+	</table>
+	<table class="example-table" style="margin-top:0">
 		<tr>
 			<th>Input</th>
 			<th>Input</th>
@@ -167,4 +173,5 @@
 			</td>
 		</tr>
 	</table>
+	</div>
 </div>

@@ -26,8 +26,9 @@
 
 	.example-table td {
 		max-width: 0;
+		padding: 0 ! important;
 		word-wrap: break-word;
-		vertical-align: top; 
+		vertical-align: top;
 	}
 
 	.example-table .vertical-spacer {
@@ -80,26 +81,26 @@
 	<div class="section">
 		<h3>Description</h3>
 		<div class="paragraph">
-			In order to represent a 3 dimensional cube in 2 dimensions it needs to be unfolded. There are many ways to unfold a cube, to make this easier, we will always unfold cubes to look like this
+			In order to represent a 3 dimensional cube in 2 dimensions it needs to be unfolded. We will always unfold cubes to look like this:
 		</div>
 		<table class="description-container-table">
 			<tr>
 				<td>
+					<img src="http://www.spoj.com/content/byuadmin:cube_fold.gif"/>
+				</td>
+				<td>
 					<div class="center-text" style="display:inline-block">
 						<pre>
-    -----    
-    | 1 |    
+    -----
+    | 1 |
 -------------
 | 2 | 3 | 4 |
 -------------
-    | 5 |    
-    -----    
-    | 6 |    
+    | 5 |
+    -----
+    | 6 |
     -----</pre>
 					</div>
-				</td>
-				<td>
-					<img src="http://www.spoj.com/content/byuadmin:cube_fold.gif"/>
 				</td>
 			</tr>
 		</table>
@@ -115,10 +116,7 @@
 	<div class="section">
 		<h3>Input</h3>
 		<div class="paragraph">
-			The first line is a number N. N testcases follow. Each test case consists of two flatten cubes separated by an empty line.
-		</div>		
-		<div class="paragraph">
-			Each face of a cube is represented with a single lowercase letter. A cube can have multiple identical faces. 
+			The first line is a number N. N testcases follow. Each test case consists of two flatten cubes separated by an empty line. Each face of a cube is represented with a single lowercase letter. A cube can have multiple identical faces.
 		</div>
 	</div>
 
@@ -141,36 +139,36 @@
 		</tr>
 		<tr>
 			<td>
-<pre> b 
+<pre> b
 aba
- b 
- b 
+ b
+ b
 
- b 
+ b
 bab
- b 
+ b
  a </pre>
 			</td>
 			<td>
-<pre> b 
+<pre> b
 adc
- e 
- f 
+ e
+ f
 
- a 
+ a
 adc
- e 
+ e
  f </pre>
 			</td>
 			<td>
-<pre> a 
+<pre> a
 bcd
- e 
- f 
+ e
+ f
 
- a 
+ a
 bfd
- e 
+ e
  c </pre>
 			</td>
 		</tr>

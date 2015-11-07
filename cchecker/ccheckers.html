@@ -57,7 +57,6 @@
 
 	pre {
 		tab-size: 4;
-		display: inline;
 	}
 
 	.billboard {
@@ -71,32 +70,32 @@
 	<div class="section">
 		<h3>Description</h3>
 		<div class="paragraph">
-			Chinese checkers is a board game where the goal is to race all your pieces across the board into the star corner on the opposite side of the board before your opponent does the same. The destination corner is called home. 
+			Chinese checkers is a multiplayer game played on hexgram-shaped board with the objective of moving your pieces to the oppostive corner before your opponents do the same.
 		</div>
 		<div class="paragraph">
-			The rules to move the marbles through the board are:
+			Each turn, a piece move in one of two ways:
 			<ul>
 				<li>
-					You can move to any adjacent and unoccupied cell
+					Move to an adjacent unoccupied cell.
 				</li>
 				<li>
-					If there's an unoccupied cell after an adjacent occupied cell (through a straight line), you can jump it and repeat as many times as you need.
+					Jump over an adjacent occupied cell, to an unoccupied cell immediately opposite the occupied one. Consecutive jumps in a single turn are allowed.
 				</li>
 			</ul>
 		</div>
 		<div class="paragraph">
-		We will represent the board using only two corners where the goal is to get from cell 1 to cell 81:
+		The full board is a hexagram (six-pointed star), but we will narrow our focus to the center area, and two opposite corners. There are 81 cells in that region:
 		</div>
 		<img src="http://www.spoj.com/content/byuadmin:ccheckers-numbered.png" style="width:300px">
 		<div class="paragraph">
-			A common way to move the pieces on the board is selecting a marble and looking for the sequence of moves that reach as close to the destination corner as possible. Your job will be to find this route.
+			Given a starting position, you will get a piece as close to cell 81 as possible in a single turn. In this context, the distance from the goal is considered to be the number of moves it would take to reach it, if there were no occupied cells. For example, cells 54, 62, 70, and 78 are all 3 away from the goal.
 		</div>
 	</div>
 
 	<div class="section">
 		<h3>Input</h3>
 		<div class="paragraph">
-			There will be two lines of input. The first line will be a space separated list of occupied cells.
+			There are two lines of input. The first line is a space separated list of occupied cells.
 		</div>
 		<div class="paragraph">
 			The second line will be a space separated list of origin cells.
@@ -106,15 +105,15 @@
 	<div class="section">
 		<h3>Output</h3>
 		<div class="paragraph">
-			For each origin cell, print the closest cell to the goal that you can reach in one turn. There will always be a possible move, and you cannot stay in the same place. Print each answer on a new line. We will define distance from the goal as number of moves to the goal ignoring occupied cells. Thus, cells 54, 62, 70, and 78 are all 3 away from the goal. If there is a tie in distance, prefer larger numbers.
-		</div>
-		<div class="paragraph">
-			Example 1 is representative of the illustration above. Starting from 1, you can navigate to 81 by way of 3, 21, 39, 41, 43, 45, 63, 81. Starting with 7, the furthest you can get is 25, by jumping over 16.
+			For each origin cell, print a line consiting of the closest cell to 81 that can be reached from the origin cell in one turn. There will always be a possible move, and you cannot stay in the same place. If there is a tie in distance, choose the largest number.
 		</div>
 	</div>
 
 	<div class="section">
 		<h3>Examples</h3>
+		<div class="paragraph">
+			Example 1 is representative of the illustration above. Starting from 1 (in blue), you can navigate to 81 by way of 3, 21, 39, 41, 43, 45, 63, 81. Starting with 7, the furthest you can get is 25, by jumping over 16.
+		</div>
 	</div>
 
 	<table class="section example-table">

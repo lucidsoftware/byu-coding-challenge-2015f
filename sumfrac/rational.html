@@ -57,7 +57,6 @@
 
 	pre {
 		tab-size:  4;
-		display: inline;
 	}
 
 	.billboard {
@@ -73,18 +72,22 @@
 
 <div>
 	<div class="section">
+		<img src="//imgs.xkcd.com/comics/im_so_random.png" title="In retrospect, it's weird that as a kid I thought completely random outbursts made me seem interesting, given that from an information theory point of view, lexical white noise is just about the opposite of interesting by definition." alt="I'm So Random" style="height:200px">
+	</div>
+
+	<div class="section">
 		<h3>Description</h3>
 		<div class="paragraph">
-			Given a list of rational numbers, find the sum in reduced form. A fraction is in reduced form if the numerator and denominator are integers that have no common divisors other than 1. (For example, <pre>2/4</pre> in reduced form is <pre>1/2</pre>).
+			Given a list of rational numbers, find the sum in reduced form. A positive fraction is in reduced form if the numerator and denominator are positive integers that have no common divisors greater than 1. (For example, 2/4 in reduced form is 1/2).
 		</div>
 	</div>
 
 	<div class="section">
 		<h3>Input</h3>
 		<div class="paragraph">
-		The first line will contain a number <pre>n</pre>.
+		The first line is an integer N. (0 &lt; N &lt;= 5)
 		</div><div class="paragraph">
-			The next <pre>n</pre> lines will contain a rational number in the form <pre>numerator/denominator</pre>.
+			The next N lines will contain a rational number in the form A/B, where A and B are positive integers less than 500.
 		</div>
 	</div>
 
