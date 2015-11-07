@@ -1,0 +1,223 @@
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+<style>
+.instructions {
+	text-align: left;
+}
+.instructions h2 {
+	margin-bottom: 5px;
+}
+.instruction-header {
+	cursor: pointer;
+	color: #0000a0;
+	display: inline-block;
+}
+.instruction-header:hover {
+	color: #b01010;
+}
+.instruction-body {
+	display: none;
+} 
+.code {
+	font-size: 12px;
+	margin: 0 0 5px 35px;
+}
+.code-block {
+	font-size: 12px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+}
+
+/* Pretty print overrides */
+pre.prettyprint {
+	padding: 8px;
+	border-radius: 10px;
+}
+.com {
+	color: #181;
+}
+.str {
+	color: #800;
+}
+</style>
+
+<h1 style="margin-bottom:5px">Language-specific Instructions</h1>
+
+<div class="instructions">
+	<div class="instruction-header" onclick="$('#c_instruction').slideToggle('fast')"><h2>C</h2></div>
+	<div id="c_instruction" class="instruction-body">
+		Command line:
+		<pre class="code">gcc -m32 example.c
+./a.out</pre>
+		The -m32 flag compiles your program as 32-bit, since the judging servers are 32-bit.
+		<br>
+		If you need a 32-bit integer, use int or int32_t.
+		<br>
+		If you need a 64-but integer, use long long or int64_t
+		<pre class="prettyprint code-block">#include &lt;stdio.h>
+
+int main() {
+	//read integer
+	int x;
+	scanf("%d", &amp;x);
+
+	//read string (less than 1000 characters)
+	char str[1000];
+	scanf("%s", str);
+
+	//read line (less than 1000 characters)
+	gets(str);
+
+	// read lines until end (tip: when testing in a terminal, Ctrl-D ends input)
+	while(scanf("%s", str), !feof(stdin)) {
+	}
+
+	//output
+	printf("%s", "Hello worldn");
+
+	return 0; //always return 0, or else your program will fail
+}</pre>
+</div>
+
+<div class="instructions">
+	<div class="instruction-header" onclick="$('#cpp_instruction').slideToggle('fast')"><h2>C++</h2></div>
+	<div id="cpp_instruction" class="instruction-body">
+		Command line:
+		<pre class="code">g++ -m32 example.c
+./a.out</pre>
+		The -m32 flag compiles your program as 32-bit, since the judging servers are 32-bit.
+		<br>
+		If you need a 32-bit integer, use int or int32_t.
+		<br>
+		If you need a 64-but integer, use long long or int64_t
+		<pre class="code-block prettyprint">#include &lt;iostream>
+#include &lt;string>
+
+int main() {
+	//read integer
+	int x;
+	cin >> x;
+
+	//read string
+	string str;
+	cin >> str;
+
+	//read line
+	getline(cin, str);
+
+	//read lines until end (tip: when testing in a terminal, Ctrl-D ends input)
+	while(cin >> str) {
+	}
+
+	//output
+	cout &lt;&lt; "Hello worldn";
+}</pre>
+</div>
+
+<div class="instructions">
+	<div class="instruction-header" onclick="$('#java_instruction').slideToggle('fast')"><h2>Java</h2></div>
+	<div id="java_instruction" class="instruction-body">
+		Command line:
+		<pre class="code">javac Main.java
+java Main</pre>
+		 Your source file should have no package and the class name must be Main.
+ 		<br>
+ 		If you choose to use a package or have a different class name, don't forget to change it back before you submit.
+		<pre class="code-block prettyprint">import java.util.Scanner;
+
+class Main {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+
+		//read integer
+		int x = input.nextInt();
+
+		//read string
+		String str = input.next();
+
+		//read line
+		//FYI, generally you should use either nextLine or next/nextInt/...,
+		//but not both
+		str = input.nextLine();
+
+		//read strings until end (tip: when testing in a terminal, Ctrl-D ends input)
+		while(input.hasNext()) {
+			str = input.next();
+		}
+
+		//output
+		System.out.println("Hello world");
+	}
+}</pre>
+</div>
+
+<div class="instructions">
+	<div class="instruction-header" onclick="$('#js_instruction').slideToggle('fast')"><h2>Node.js</h2></div>
+	<div id="js_instruction" class="instruction-body">
+		Command line:
+		<pre class="code">node example.js</pre>
+		<pre class="code-block prettyprint">/**
+ * The simplest way is to read in all input first, and then operate on that.
+ * On the command line, use Ctrl-D to end input.
+ */
+
+process.stdin.resume();
+process.stdin.setEncoding('utf8');
+var chunks = [];
+process.stdin.on('data', function (chunk) {
+	chunks.push(chunk);
+});
+process.stdin.once('end', function() {
+	main(chunks.join(''));
+});
+
+function main(input) {
+	//do something with input, like input.split('n')
+
+	//output
+	console.log('Hello world'); //or process.stdout.write('Hello world');
+}</pre>
+</div>
+
+<div class="instructions">
+	<div class="instruction-header" onclick="$('#py2_instruction').slideToggle('fast')"><h2>Python 2.7</h2></div>
+	<div id="py2_instruction" class="instruction-body">
+		Command line:
+		<pre class="code">python example.py</pre>
+		<pre class="code-block prettyprint">import sys
+
+#read a line as an number
+x = input()
+
+#read a line as a string
+line = raw_input()
+
+#read lines until end (tip: when testing in a terminal, Ctrl-D ends input)
+for line in sys.stdin:
+	pass
+
+#output
+print 'Hello world'</pre>
+</div>
+
+<div class="instructions">
+	<div class="instruction-header" onclick="$('#py3_instruction').slideToggle('fast')"><h2>Python 3.2</h2></div>
+	<div id="py3_instruction" class="instruction-body">
+		Command line:
+		<pre class="code">python3 example.py</pre>
+		<pre class="code-block prettyprint">import sys
+
+#read a line as an integer
+x = int(input())
+
+#read a line as a string
+line = input()
+
+#read lines until end (tip: when testing in a terminal, Ctrl-D ends input)
+for line in sys.stdin:
+	pass
+
+#output
+print('Hello world')</pre>
+</div>

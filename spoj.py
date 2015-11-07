@@ -51,6 +51,18 @@ class SPOJ:
         self.browser.submit()
         print 'Edited {}'.format(problem_code)
 
+    def upload(self, contest_code, name, upload_path):
+        self.navigate('{}/{}/uploads'.format(self.base_url, contest_code))
+        self.browser.select_form(nr=0)
+        print 'Adding upload {}'.format(upload_path)
+        self.browser['title'] = name
+        with open(upload_path, 'r') as upload_file:
+            self.browser['content'] = upload_file.read()
+
+        print 'Uploading to {}'.format(contest_code)
+        self.browser.submit()
+        print 'Uploaded {}'.format(contest_code)
+
 def contest_main(args):
     spoj = SPOJ()
     spoj.authenticate(args.user, args.password)
@@ -60,6 +72,11 @@ def problem_main(args):
     spoj = SPOJ()
     spoj.authenticate(args.user, args.password)
     spoj.edit_problem(args.problem_code, body_path=args.body_file)
+
+def upload_main(args):
+    spoj = SPOJ()
+    spoj.authenticate(args.user, args.password)
+    spoj.upload(args.contest_code, args.name, args.file)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -76,6 +93,12 @@ if __name__ == '__main__':
     subparser.add_argument('problem_code', help='Alphanumeric problem code')
     subparser.add_argument('--body-file', help='Problem description file')
     subparser.set_defaults(func=problem_main)
+
+    subparser = subparsers.add_parser('upload')
+    subparser.add_argument('contest_code')
+    subparser.add_argument('name')
+    subparser.add_argument('--file', help='file')
+    subparser.set_defaults(func=upload_main)
 
     args = parser.parse_args()
     args.func(args)
