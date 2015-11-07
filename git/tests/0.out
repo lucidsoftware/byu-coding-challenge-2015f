@@ -1,0 +1,4 @@
+git add -A
+git commit -m "Some changes"
+git pull
+git push
