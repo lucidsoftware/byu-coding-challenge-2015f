@@ -1,5 +1,6 @@
-people_count, pizza_count = map(int, input().split())
-pizza_sizes = [int(input()) for _ in range(pizza_count)]
+from operator import mul
+people_count, pizza_count = map(int, raw_input().split())
+pizza_sizes = [reduce(mul,map(int, raw_input().split())) for _ in range(pizza_count)]
 
 def best_size(min_size, max_size):
 	if max_size - min_size < .001:

@@ -74,13 +74,16 @@
 			Pizza is awesome.
 		</div>
 		<div class="paragraph">
-			After a programming competition, you and your fellow competitors have pizza for lunch. It's much better than the leftovers in your fridge. You are in charge of slicing and distributing the pizzas, which are of various initial sizes. You may cut each pizza however you like, and as many times as you would like; you could even not cut a pizza at all, and make the whole thing one big "slice". (Yummy.) The only portioning requirement is that each person receive <b>exactly one</b> slice of pizza, and they can't share it.
+			After a programming competition, you and your fellow competitors have pizza for lunch. It's much better than the leftovers in your fridge. You are in charge of slicing and distributing the pizzas, which are of various initial areas. You may cut each pizza however you like, and as many times as you would like; you could even not cut a pizza at all, and make the whole thing one big "slice". (Yummy.) The only portioning requirement is that each person receive <b>exactly one</b> slice of pizza, and they can't share it.
 		</div>
 		<div class="paragraph">
-			You consider how large of a slice you can guarentee, such that each person gets at least that much. For example, if there are three people, and three pizzas of sizes 1, 2, and 3, you can cut the largest pizza in half, yielding slices of size 1, 2, 1.5, and 1.5. That guarantees each person a slice of size 1.5 or more.
+			These pizza's are rectangular pizzas, like the Detroit style deep dish pizzas from Little Caesars. Weird.
 		</div>
 		<div class="paragraph">
-			Given that you can cut pizzas however you like, what is largest size slice you can guarantee to everyone?
+			You consider how large of a slice you can guarentee, such that each person gets at least that much. For example, if there are three people, and three pizzas with areas 1, 2, and 3, you can cut the largest pizza in half, yielding slices of area 1, 2, 1.5, and 1.5. That guarantees each person a slice of size 1.5 or more.
+		</div>
+		<div class="paragraph">
+			Given that you can cut pizzas however you like, what is largest area slice you can guarantee to everyone?
 		</div>
 	</div>
 
@@ -89,14 +92,14 @@
 		<div class="paragraph">
 			The first line is two numbers separated by a space, M and N. M is the number of people (0 &lt; M &lt; 1000). N is the number of whole pizzas (0 &lt; N &lt; 1000).
 			<br>
-			The next N lines are the initial sizes of the pizzas, which are positive integers less than 1000.
+			The next N lines contain two numbers W and H, the width and height of the pizzas, which are positive integers less than 1000.
 		</div>
 	</div>
 
 	<div class="section">
 		<h3>Output</h3>
 		<div class="paragraph">
-			Output the maximum size of pizza slice you can guarantee to each person. Your answer must be accurate to within 0.001.
+			Output the maximum area of pizza slice you can guarantee to each person. Your answer must be accurate to within 0.001.
 		</div>
 	</div>
 
@@ -113,24 +116,24 @@
 		<tr>
 			<td>
 <pre>3 3
-1
-2
-3</pre>
+1 1
+1 2
+3 1</pre>
 			</td>
 			<td>
 <pre>3 4
-1
-2
-3
-4</pre>
+1 1
+2 1
+1 3
+2 2</pre>
 			</td>
 			<td>
 <pre>5 5
-6
-2
-3
-7
-11</pre>
+1 3
+2 1
+2 3
+7 1
+1 11</pre>
 			</td>
 		</tr>
 		<tr>
