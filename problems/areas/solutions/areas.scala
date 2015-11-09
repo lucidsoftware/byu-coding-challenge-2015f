@@ -10,10 +10,10 @@ object Main {
 
 	def main(args: Array[String]) = {
 		val scanner = new Scanner(System.in)
-		val p1 = new Point(scanner.nextInt(), scanner.nextInt())
-		val p2 = new Point(scanner.nextInt(), scanner.nextInt())
-		val p3 = new Point(scanner.nextInt(), scanner.nextInt())
-		val p4 = new Point(scanner.nextInt(), scanner.nextInt())
+		val p1 = Point(scanner.nextInt(), scanner.nextInt())
+		val p2 = Point(scanner.nextInt(), scanner.nextInt())
+		val p3 = Point(scanner.nextInt(), scanner.nextInt())
+		val p4 = Point(scanner.nextInt(), scanner.nextInt())
 
 		val c = {
 			val d1 = p1 - p3
