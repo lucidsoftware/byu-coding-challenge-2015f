@@ -6,10 +6,9 @@ USER := byuadmin
 
 uppercase = $(shell tr '[a-z]' '[A-Z]' <<< $1)
 
-HTML_SRC := $(filter-out target/%,$(filter-out uploads/%,$(wildcard */*.html)))
-HTML_SRC_DIR := $(dir $(HTML_SRC))
-
-UPLOADS_SRC := $(wildcard uploads/*)
+PROBLEMS := $(wildcard problems/*)
+TEST_DIRS := $(wildcard problems/*/test/data)
+UPLOADS_SRC := $(wildcard contest/uploads/*)
 
 .PHONY: all
 all: contest problems solutions uploads
@@ -18,10 +17,10 @@ all: contest problems solutions uploads
 contest: target/BYU2015F.html
 
 .PHONY: solutions
-solutions: $(HTML_SRC_DIR:%/=target/%.zip.upload)
+solutions: $(SOLUTION_DIRS:%=target/%.zip.upload)
 
 .PHONY: problems
-problems: $(HTML_SRC_DIR:%/=target/%.html)
+problems: $(PROBLEMS:%=target/%.upload)
 
 .PHONY: uploads
 uploads: $(UPLOADS_SRC:%=target/%)
@@ -30,28 +29,25 @@ uploads: $(UPLOADS_SRC:%=target/%)
 clean:
 	rm -fr target
 
-target/BYU2015F.html: footer.html
+target/contest.upload: contest/footer.html
 	@mkdir -p $(@D)
 	./spoj.py --user=$(USER) --password=$(PASSWORD) contest --footer-file=$< BYU2015F
 	@> $@
 
-target/uploads/%: uploads/%
+target/contest/uploads/%: uploads/%
 	@mkdir -p $(@D)
 	./spoj.py --user=$(USER) --password=$(PASSWORD) upload --file=$< BYU2015F $(*:%.html=%)
 	@> $@
 
-
-target/%.zip.upload: target/%.zip
-	./spoj.py --user=$(USER) --password=$(PASSWORD) tests --zip-file=$< $(call uppercase,$*)
-	@> $@
-
-.SECONDEXPANSION:
-
-target/%.zip: $$(wildcard $$*/tests/*)
+target/problems/%/test/data.zip: 
 	@mkdir -p $(@D)
 	@if [ -z "$^" ]; then > $@; else zip --filesync -j $@ $^; fi
 
-target/%.html: $$*/$$*.html
+target/problems/%/test/data.zip.upload: problems/%/test/data.zip
+	./spoj.py --user=$(USER) --password=$(PASSWORD) tests --zip-file=$< $(call uppercase,$*)
+	@> $@
+
+target/problems/%.upload: problems/%/description.html
 	@mkdir -p $(@D)
 	./spoj.py --user=$(USER) --password=$(PASSWORD) problem --body-file=$< $(call uppercase,$*)
 	@> $@
